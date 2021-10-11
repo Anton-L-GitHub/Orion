@@ -1,0 +1,62 @@
+Kan inte göra :(
+  - VPNs
+  - LoadBalancers
+  - Attach volumes?
+Fastip?
+  fixed_ip    = "${openstack_compute_instance_v2.multi-net.network.1.fixed_ip_v4}"
+
+
+
+######## Securtiy groups ########
+
+resource "openstack_networking_port_v2" "port_1" {
+  name               = "port_1"
+  admin_state_up     = "true"
+  network_id         = openstack_networking_network_v2.external.id
+  security_group_ids = [openstack_compute_secgroup_v2.HTTP-HTTPS.id]
+}
+
+
+
+
+/* resource "openstack_compute_instance_v2" "my_first_server" {
+  name            = "basic_centOS"
+  image_id        = "a03d54ca-35b1-4724-9f6b-3288da1e8cba"
+  key_pair        = "A-Cloud"
+  admin_pass      = "Hej123+"
+  flavor_name     = "v1-standard-1"
+  security_groups = ["default"]
+  user_data       = var.user_config
+
+  metadata = {
+    this = "that"
+    that = "this"
+  }
+} */
+
+
+
+# VPN
+
+resource "openstack_vpnaas_service_v2" "vpn_1" {
+  name           = var.vpn["name"]
+  router_id      = openstack_networking_router_v2.router-1.id
+  subnet_id      = openstack_networking_subnet_v2.users-sub-01.id
+  admin_state_up = "true"
+}
+
+
+variable "vpn" {
+  type = map(string)
+  default = {
+    "name" = "vpn-1"
+  }
+}
+
+resource "openstack_lb_loadbalancer_v2" "webservers" {
+  name          = "loadbalancer_webservers"
+  vip_subnet_id = openstack_networking_subnet_v2.external-sub-01.id
+  depends_on    = [openstack_compute_instance_v2.webservers]
+}
+
+
