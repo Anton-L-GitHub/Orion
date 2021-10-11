@@ -107,3 +107,16 @@ variable "openstack_config" {
     flavor = "v1-standard-1"
   }
 }
+variable "surveillance" {
+  type    = set(string)
+  default = ["surveillance"]
+}
+
+variable "surveillance_config" {
+  type = map(string)
+  default = {
+    image  = "ubuntu-20.04-server-latest"
+    flavor = "v1-standard-1"
+  }
+}
+
