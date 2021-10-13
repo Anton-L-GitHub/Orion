@@ -2,11 +2,11 @@
 
 ## Networks
 
-| Network       | ..                           |
+| Network       |                              |
 | ------------- | ---------------------------- |
 | 10.10.1.0/24  | Externaly Accessable Servers |
 | 10.10.2.0/24  | Internal Accessable Servers  |
-| 10.100.0.0/24 | USERS                        |
+| 10.100.0.0/24 | USERS via VPN                |
 
 ## Servers / Intances 
 | External Servers | Role                | IP         |
