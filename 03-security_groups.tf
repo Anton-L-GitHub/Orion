@@ -79,9 +79,9 @@ resource "openstack_compute_secgroup_v2" "HTTP-HTTPS-intranet" {
     cidr        = var.internal_network["sub_01_cidr"]
   }
 }
-resource "openstack_compute_secgroup_v2" "surveillanceSG" {
-  name        = "surveillanceSG"
-  description = "ALLOW surveillance access"
+resource "openstack_compute_secgroup_v2" "surveillance" {
+  name        = "Surveillance"
+  description = "ALLOW Surveillance camera access"
 
   rule {
     from_port   = 5000

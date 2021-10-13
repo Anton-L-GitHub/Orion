@@ -13,13 +13,13 @@ resource "openstack_compute_instance_v2" "surveillance" {
 resource "openstack_networking_port_v2" "surveillance_ports" {
   for_each       = var.surveillance
   name           = "port-${each.key}"
-  network_id     = openstack_networking_network_v2.internal-net-01.id
+  network_id     = openstack_networking_network_v2.external-net-01.id
   admin_state_up = true
   security_group_ids = [
     openstack_compute_secgroup_v2.surveillanceSG.id
   ]
   fixed_ip {
-    subnet_id = openstack_networking_subnet_v2.internal-sub-01.id
+    subnet_id = openstack_networking_subnet_v2.external-sub-01.id
   }
 }
 
