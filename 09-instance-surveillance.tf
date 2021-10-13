@@ -16,7 +16,7 @@ resource "openstack_networking_port_v2" "surveillance_ports" {
   network_id     = openstack_networking_network_v2.external-net-01.id
   admin_state_up = true
   security_group_ids = [
-    openstack_compute_secgroup_v2.surveillanceSG.id
+    openstack_compute_secgroup_v2.surveillance.id
   ]
   fixed_ip {
     subnet_id = openstack_networking_subnet_v2.external-sub-01.id
