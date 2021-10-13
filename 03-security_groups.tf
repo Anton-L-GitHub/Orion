@@ -1,7 +1,7 @@
 
 resource "openstack_compute_secgroup_v2" "SSH" {
   name        = "SSH"
-  description = "Allow SSH"
+  description = "ALLOW SSH"
 
   rule {
     from_port   = 22
