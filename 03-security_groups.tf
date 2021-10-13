@@ -41,9 +41,8 @@ resource "openstack_compute_secgroup_v2" "DB" {
   }
 }
 
-
 resource "openstack_compute_secgroup_v2" "SMTP" {
-  name        = "DB"
+  name        = "SMTP"
   description = "ALLOW SMTP on 587 & 2525"
 
   rule {
