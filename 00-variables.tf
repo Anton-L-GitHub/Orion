@@ -109,7 +109,7 @@ variable "openstack_config" {
 }
 variable "surveillance" {
   type    = set(string)
-  default = ["surveillance"]
+  default = ["surveillance-01"]
 }
 
 variable "surveillance_config" {
