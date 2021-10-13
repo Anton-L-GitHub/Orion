@@ -9,18 +9,20 @@
 | 10.100.0.0/24 | USERS                        |
 
 ## Servers / Intances 
-| External Servers | IP        |
-| ---------------- | --------- |
-| Web              | 10.10.1.2 |
-| Mail             | 10.10.1.3 |
+| External Servers | Role                | IP         |
+| ---------------- | ------------------- | ---------- |
+| mail-01          | Mail Server         | 10.10.1.15 |
+| web-01           | Web Server          | 10.10.1.3  |
+| web-02           | Web Server          | 10.10.1.4  |
+| surveillance-01  | Surveillance Server | 10.10.1.10 |
 
+| Internal Servers | Role      | IP        |
+| ---------------- | --------- | --------- |
+| db-01            | MySQL     | 10.10.2.3 |
+| db-02            | MySQL     | 10.10.2.4 |
+| nc-01            | NextCloud | 10.10.2.9 |
+| openstack-01     | Openstack | 10.10.2.7 |
 
-| Internal Servers | IP        |
-| ---------------- | --------- |
-| Databases        | 0.0.0.0   |
-| NextCloud        | 10.10.1.8 |
-| Openstack        | 10.10.1.9 |
-| Media            | 10.10.1.4 |
 
 ## Security groups
 | SG           | PORTS     | Accessable FROM  |
